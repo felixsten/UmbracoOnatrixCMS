@@ -1,0 +1,156 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	
+	var ceoImage = Model?.Value<IPublishedContent>("aboutUsCeoImage")?.Url() ?? ""; 
+	var reviewsImage = Model?.Value<IPublishedContent>("reviewsImage")?.Url() ?? ""; 
+	var employee1 = Model?.Value<IPublishedContent>("employee1Image")?.Url() ?? ""; 
+	var employee2 = Model?.Value<IPublishedContent>("employee2Image")?.Url() ?? ""; 
+	var employee3 = Model?.Value<IPublishedContent>("employee3Image")?.Url() ?? ""; 
+	var employee4 = Model?.Value<IPublishedContent>("employee4Image")?.Url() ?? ""; 
+	var employee5 = Model?.Value<IPublishedContent>("employee5Image")?.Url() ?? ""; 
+	var employee6 = Model?.Value<IPublishedContent>("employee6Image")?.Url() ?? ""; 
+	var employee7 = Model?.Value<IPublishedContent>("employee7Image")?.Url() ?? ""; 
+	var addressImage = Model?.Value<IPublishedContent>("addressImage")?.Url() ?? ""; 
+	
+	
+}
+
+<section class="about-us-page">
+	<div class="container">
+		
+		<div class="headline">
+			<div>
+				<h2>@Model.Value("aboutUsTitle")</h2>
+				<h5>@Model.Value("aboutUsHeadline")</h5>
+			</div>
+			
+		</div>
+			
+		
+		<div class="ceo-container" >
+			<div class="ceo">
+				<img class="ceo-image" src="@ceoImage" >
+					
+				<p class="name">@Model.Value("aboutUsCeoName")</p>
+					
+			</div>
+			<div>
+				<p>@Model.Value("aboutUsInfoText")</p>
+			</div>
+		</div>
+
+		
+
+	</div>
+</section>
+
+<section class="reviews-section">
+	<div class="container">
+		
+		<div class="reviews-container">
+			<div class="reviews-info">
+				<div class="headline">
+					<div>
+						<h5>@Model.Value("reviewsHeadline")</h5>
+						<h2>@Model.Value("reviewsTitle")</h2>
+					</div>
+				</div>
+
+		
+			
+				<p class="reviews-text">@Model.Value("reviewsText")</p>
+				<p class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+				<p class="reviews-name">@Model.Value("reviewsName")</p>
+				<p class="reviews-company">@Model.Value("reviewsCompany")</p>
+			</div>
+
+			<div class="reviews-image-container">
+				<img class="reviews-image" src="@reviewsImage">
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<section class="employees-section">
+	<div class="container">
+		
+		<div class="headline">
+			<div>
+				<h5>@Model.Value("employeesHeadline")</h5>
+				<h2>@Model.Value("employeesTitle")</h2>
+			</div>
+		</div>
+
+		<div class="employee-cards-top">
+			<div class="employee-card">
+				<img class="employee-image" src="@employee1" >
+				<h3>@Model.Value("employee1Name")</h3>
+				<p>@Model.Value("employee1Text")</p>
+			</div>
+			<div class="employee-card">
+				<img class="employee-image" src="@employee2" >
+				<h3>@Model.Value("employee2Name")</h3>
+				<p>@Model.Value("employee2Text")</p>
+			</div>
+			<div class="employee-card">
+				<img class="employee-image" src="@employee3" >
+				<h3>@Model.Value("employee3Name")</h3>
+				<p>@Model.Value("employee3Text")</p>
+			</div>
+		</div>
+
+		<div class="employee-cards-bot">
+			<div class="employee-card">
+				<img class="employee-image" src="@employee4" >
+				<h3>@Model.Value("employee4Name")</h3>
+				<p>@Model.Value("employee4Text")</p>
+			</div>
+			<div class="employee-card">
+				<img class="employee-image" src="@employee5" >
+				<h3>@Model.Value("employee5Name")</h3>
+				<p>@Model.Value("employee5Text")</p>
+			</div>
+			<div class="employee-card">
+				<img class="employee-image" src="@employee6" >
+				<h3>@Model.Value("employee6Name")</h3>
+				<p>@Model.Value("employee6Text")</p>
+			</div>
+			<div class="employee-card">
+				<img class="employee-image" src="@employee7" >
+				<h3>@Model.Value("employee7Name")</h3>
+				<p>@Model.Value("employee7Text")</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="addressinfo-section">
+	<div class="container">
+		
+		<div class="addressinfo-image-container">
+			<img class="addressinfo-image" src="@addressImage" >
+		</div>
+
+		<div class="addressinfo-info">
+			<h2>@Model.Value("addressTitle")</h2>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-location-pin"></i>@Model.Value("addressLocationBold")</p>
+				<p>@Model.Value("addressLocationText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-phone"></i>@Model.Value("addressPhoneBold")</p>
+				<p>@Model.Value("addressPhoneText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-regular fa-envelope"></i>@Model.Value("addressEmailBold")</p>
+				<p>@Model.Value("addressEmailText")</p>
+			</div>
+		</div>
+
+
+
+	</div>
+</section>

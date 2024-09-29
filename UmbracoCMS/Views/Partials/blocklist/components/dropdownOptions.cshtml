@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+
+    var dropdownInfo = Model?.Content.Value<string>("dropdownInfo");
+    var dropdownItem = Model?.Content.Value<string>("dropdownItem");
+        
+
+    
+}
+
+<div id="_@dropdownInfo" class="form-input-group">
+    <select id="@dropdownInfo" name="@dropdownInfo" class="form-dropdown">
+        <option>@dropdownItem</option>
+    </select>
+</div>

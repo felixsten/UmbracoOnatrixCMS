@@ -1,0 +1,83 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+
+	var projectImage1 = Model?.Value<IPublishedContent>("projectImage1")?.Url() ?? ""; 
+	var projectImage2 = Model?.Value<IPublishedContent>("projectImage2")?.Url() ?? ""; 
+	var projectImage3 = Model?.Value<IPublishedContent>("projectImage3")?.Url() ?? ""; 
+	var addressImage = Model?.Value<IPublishedContent>("addressImage")?.Url() ?? ""; 
+}
+
+<section class="project-page">
+	<div class="container">
+		
+		<div class="headline">
+			<div>
+				<h2>@Model.Value("projectTitle")</h2>
+				<h5>@Model.Value("projectHeadline")</h5>
+			</div>
+		</div>
+			
+
+
+	</div>
+</section>
+
+<section class="project-content">
+	<div class="container">
+		
+		<div class="project-info">
+			<p><i class="fa-regular fa-calendar"></i>@Model?.Value("projectDate")</p> 
+			<p>@Model.Value("projectText1")</p>
+			<img class="project-image" src="@projectImage1" >
+
+			<h4>@Model.Value("projectHeader1")</h4>
+			<p>@Model.Value("projectText2")</p>
+
+			<img class="project-image" src="@projectImage2" >
+			<h4>@Model.Value("projectHeader2")</h4>
+			<p>@Model.Value("projectText3")</p>
+
+			<h4>@Model.Value("projectHeader3")</h4>
+			<p>@Model.Value("projectText4")</p>
+			<img class="project-image" src="@projectImage3" >
+
+			<h4>@Model.Value("projectHeader4")</h4>
+			<p>@Model.Value("projectText5")</p>
+
+		</div>
+		
+		
+			
+	</div>
+</section>
+
+
+<section class="addressinfo-section">
+	<div class="container">
+		
+		<div class="addressinfo-image-container">
+			<img class="addressinfo-image" src="@addressImage" >
+		</div>
+
+		<div class="addressinfo-info">
+			<h2>@Model.Value("addressTitle")</h2>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-location-pin"></i>@Model.Value("addressLocationBold")</p>
+				<p>@Model.Value("addressLocationText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-phone"></i>@Model.Value("addressPhoneBold")</p>
+				<p>@Model.Value("addressPhoneText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-regular fa-envelope"></i>@Model.Value("addressEmailBold")</p>
+				<p>@Model.Value("addressEmailText")</p>
+			</div>
+		</div>
+
+
+
+	</div>
+</section>

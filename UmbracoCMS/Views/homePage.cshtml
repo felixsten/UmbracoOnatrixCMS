@@ -1,0 +1,203 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<HomePage>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "mainLayout.cshtml";
+	
+
+	var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
+	var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
+	var scard1Image = Model?.Value<IPublishedContent>("serviceCard1Image")?.Url() ?? "";
+	var scard2Image = Model?.Value<IPublishedContent>("serviceCard2Image")?.Url() ?? "";
+	var scard3Image = Model?.Value<IPublishedContent>("serviceCard3Image")?.Url() ?? "";
+	var scard4Image = Model?.Value<IPublishedContent>("serviceCard4Image")?.Url() ?? "";
+	var scard5Image = Model?.Value<IPublishedContent>("serviceCard5Image")?.Url() ?? "";
+	var scard6Image = Model?.Value<IPublishedContent>("serviceCard6Image")?.Url() ?? "";
+	var ourStorySectionImage = Model?.Value<IPublishedContent>("ourStoryImage")?.Url() ?? "";
+	var successStorySectionImage = Model?.Value<IPublishedContent>("successStoriesImage")?.Url() ?? ""; 
+	var ourProjectsImage1 = Model?.Value<IPublishedContent>("ourProjectsProject1Image")?.Url() ?? ""; 
+	var ourProjectsImage2 = Model?.Value<IPublishedContent>("ourProjectsProject2Image")?.Url() ?? ""; 
+	var ourProjectsImage3 = Model?.Value<IPublishedContent>("ourProjectsProject3Image")?.Url() ?? ""; 
+	var ourProjectsImage4 = Model?.Value<IPublishedContent>("ourProjectsProject4Image")?.Url() ?? ""; 
+	
+}
+
+<section id="hero-slider" class="hero">
+	<div class="background" style="background-image:url(@backgroundImage); background-size: cover; background-position: 60%"></div>
+	<div class="container">
+		<div class="hero-content">
+			<h1 class="headline">@Model?.Value("heroHeadline")</h1>
+			<p class="ingress">@Model?.Value("heroText")</p>
+			<div>
+				<a href="@Model?.Value("heroButtonUrl")" class="btn btn-primary">@Model?.Value("heroButtonText")</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="about-us" class="about-us">
+	<div class="container">
+		<div class="content">
+			<div class="headline">
+				<div>
+					<h5>@Model?.Value("aboutSectionTitle")</h5>
+					<h2>@Model?.Value("aboutHeadline")</h2>
+				</div>
+			</div>
+			<blockquote class="quote">@Model?.Value("aboutQuote")</blockquote>
+			<p>@Model?.Value("aboutText")</p>
+			<div class="signature-container" >
+				<div class="signature">
+					<img class="signature-image" src="@signatureImage" alt="@Model?.Value("aboutSignature")" >
+					<div class="clarification">
+						<p class="name">@Model?.Value("aboutSignature")</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-container">
+			<div class="home-contactform-text">
+				<h2>@Model.Value("formTitle")</h2>
+				<p>@Model.Value("formText")</p>
+			</div>
+
+			<form novalidate>
+				@Html.GetBlockListHtml(Model.ContactForm) 
+			</form>
+		</div>
+
+	</div>
+</section>
+
+<section class="our-services">
+	<div class="container">
+		<div class="services-header">
+			<h5>@Model?.Value("ourServicesHeader")</h5>
+			<h2>@Model?.Value("ourServicesTitle")</h2>
+		</div>
+		<div class="services-cards">
+			<div class="scard">
+				<h3>@Model?.Value("serviceCard1Title")</h3>
+				<img src="@scard1Image">
+				<p>@Model?.Value("serviceCard1Description")</p>
+			</div>
+			<div class="scard">
+				<h3>@Model?.Value("serviceCard2Title")</h3>
+				<img src="@scard2Image">
+				<p>@Model?.Value("serviceCard2Description")</p>
+			</div>
+			<div class="scard">
+				<h3>@Model?.Value("serviceCard3Title")</h3>
+				<img src="@scard3Image">
+				<p>@Model?.Value("serviceCard3Description")</p>
+			</div>
+			<div class="scard">
+				<h3>@Model?.Value("serviceCard4Title")</h3>
+				<img src="@scard4Image">
+				<p>@Model?.Value("serviceCard4Description")</p>
+			</div>
+			<div class="scard">
+				<h3>@Model?.Value("serviceCard5Title")</h3>
+				<img src="@scard5Image">
+				<p>@Model?.Value("serviceCard5Description")</p>
+			</div>
+			<div class="scard">
+				<h3>@Model?.Value("serviceCard6Title")</h3>
+				<img src="@scard6Image">
+				<p>@Model?.Value("serviceCard6Description")</p>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+<section class="our-story">
+	<div class="container">
+		<div class="ourstory-info">
+			<h2>@Model?.Value("ourStoryHeadline")</h2>
+			<p>@Model?.Value("ourStoryText")</p>
+			<div>
+				<a href="@Model?.Value("ourStoryButtonUrl")" class="btn btn-primary">@Model?.Value("ourStoryButtonText")</a>
+			</div>
+		</div>
+		
+		<img src="@ourStorySectionImage">
+
+	</div>
+</section>
+
+<section class="success-stories">
+	<div class="container">
+		<div class="successstory-info">
+			<h5>@Model?.Value("successStoriesTitle")</h5>
+			<h2>@Model?.Value("successStoriesHeadline")</h2>
+		</div>
+		<div class="stats">
+			<div class="stat">
+				<h3>@Model?.Value("successStoriesStatistic1")</h3>
+				<p>@Model?.Value("successStoriesStatistic1Text")</p>
+			</div>
+			<div class="stat">
+				<h3>@Model?.Value("successStoriesStatistic2")</h3>
+				<p>@Model?.Value("successStoriesStatistic2Text")</p>
+			</div>
+			<div class="stat">
+				<h3>@Model?.Value("successStoriesStatistic3")</h3>
+				<p>@Model?.Value("successStoriesStatistic3Text")</p>
+			</div>
+		
+		</div>
+		
+		<img src="@successStorySectionImage">
+
+	</div>
+</section>
+
+<section class="our-projects">
+	<div class="container">
+		<div class="projects-info">
+			<h5>@Model?.Value("ourProjectsTitle")</h5>
+			<h2>@Model?.Value("ourProjectsHeadline")</h2>
+		</div>
+		<div class="projects">
+			<div class="project">
+				<img src="@ourProjectsImage1">
+				<h4>@Model?.Value("ourProjectsProject1Title")</h3>
+				<p>@Model?.Value("ourProjectsProject1Text")</p>
+			</div>
+			<div class="project">
+				<img src="@ourProjectsImage2">
+				<h4>@Model?.Value("ourProjectsProject2Title")</h3>
+				<p>@Model?.Value("ourProjectsProject2Text")</p>
+			</div>
+			<div class="project">
+				<img src="@ourProjectsImage3">
+				<h4>@Model?.Value("ourProjectsProject3Title")</h3>
+				<p>@Model?.Value("ourProjectsProject3Text")</p>
+			</div>
+			<div class="project">
+				<img src="@ourProjectsImage4">
+				<h4>@Model?.Value("ourProjectsProject4Title")</h3>
+				<p>@Model?.Value("ourProjectsProject4Text")</p>
+			</div>
+		
+		</div>
+		
+		
+
+	</div>
+</section>
+
+<section class="companylogos">
+	<div class="container">
+		<img src="https://localhost:44393/media/443eb0pg/01.png">
+		<img src="https://localhost:44393/media/skvdbqpk/02.png">
+		<img src="https://localhost:44393/media/plnpcdtu/03.png">
+		<img src="https://localhost:44393/media/agknphy5/04.png">
+		<img src="https://localhost:44393/media/gp1md1sd/05.png">
+		<img src="https://localhost:44393/media/w2qpgrga/06.png">
+	</div>
+</section>
+	

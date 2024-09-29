@@ -1,0 +1,80 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContactPage>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "mainLayout.cshtml";
+
+	var addressImage = Model?.Value<IPublishedContent>("addressImage")?.Url() ?? ""; 
+}
+
+<section class="contact-us-page">
+	<div class="container">
+		
+		<div class="headline">
+			<div>
+				<h2>@Model.Value("contactUsMainTitle")</h2>
+				<h5>@Model.Value("contactUsHeadline")</h5>
+			</div>
+		</div>
+			
+
+
+	</div>
+</section>
+
+<section class="addressinfo-section">
+	<div class="container">
+		
+		<div class="addressinfo-image-container">
+			<img class="addressinfo-image" src="@addressImage" >
+		</div>
+
+		<div class="addressinfo-info">
+			<h2>@Model.Value("addressTitle")</h2>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-location-pin"></i>@Model.Value("addressLocationBold")</p>
+				<p>@Model.Value("addressLocationText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-phone"></i>@Model.Value("addressPhoneBold")</p>
+				<p>@Model.Value("addressPhoneText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-regular fa-envelope"></i>@Model.Value("addressEmailBold")</p>
+				<p>@Model.Value("addressEmailText")</p>
+			</div>
+		</div>
+
+
+
+	</div>
+</section>
+
+<section class="contact-us-form-section">
+	<div class="container">
+		<div class="contactform-text">
+			<h5>@Model.Value("formHeadline")</h5>
+			<h2>@Model.Value("formTitle")</h2>
+			<p>@Model.Value("formText")</p>
+		</div>
+
+		<form novalidate>
+			@Html.GetBlockListHtml(Model.ContactForm) 
+		</form>
+
+			
+
+
+	</div>
+</section>
+
+<section class="companylogos">
+	<div class="container">
+		<img src="https://localhost:44393/media/443eb0pg/01.png">
+		<img src="https://localhost:44393/media/skvdbqpk/02.png">
+		<img src="https://localhost:44393/media/plnpcdtu/03.png">
+		<img src="https://localhost:44393/media/agknphy5/04.png">
+		<img src="https://localhost:44393/media/gp1md1sd/05.png">
+		<img src="https://localhost:44393/media/w2qpgrga/06.png">
+	</div>
+</section>

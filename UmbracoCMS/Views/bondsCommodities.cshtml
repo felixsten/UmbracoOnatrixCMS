@@ -1,0 +1,109 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BondsCommodities>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "mainLayout.cshtml";
+
+	var serviceImage1 = Model?.Value<IPublishedContent>("serviceImage1")?.Url() ?? ""; 
+	var serviceImage2 = Model?.Value<IPublishedContent>("serviceImage2")?.Url() ?? ""; 
+	var addressImage = Model?.Value<IPublishedContent>("addressImage")?.Url() ?? ""; 
+	var sideImage = Model?.Value<IPublishedContent>("sideImage")?.Url() ?? "";
+}
+
+<section class="service-page">
+	<div class="container">
+		
+		<div class="headline">
+			<div>
+				<h2>@Model.Value("bondsCommoditiesMainTitle")</h2> 
+				<h5>@Model.Value("bondsCommoditiesHeadline")</h5> 
+			</div>
+		</div>
+			
+
+
+	</div>
+</section>
+
+<section class="service-content">
+	<div class="container">
+
+		<div class="side-info">
+			<div class="side-text">
+				<h4>@Model.Value("sideTitle")</h4>
+				<img src="@sideImage" >
+				<p>@Model.Value("sideText")</p>
+			</div>
+
+			<div class="side-form">
+				<h4>@Model.Value("sideFormTitle")</h4>
+				<p>@Model.Value("sideFormText")</p>
+
+				<form novalidate>
+				@Html.GetBlockListHtml(Model.SideForm) 
+				</form>
+			</div>
+
+		</div>
+		
+		<div class="service-info">
+			<img class="service-image" src="@serviceImage1" >
+			<h4>@Model.Value("serviceHeader1")</h4>
+			<p>@Model.Value("serviceText1")</p>
+			
+			<h4>@Model.Value("serviceHeader2")</h4>
+			<p>@Model.Value("serviceText2")</p>
+
+			<img class="service-image" src="@serviceImage2" >
+			<h4>@Model.Value("serviceHeader3")</h4>
+			<p>@Model.Value("serviceText3")</p>
+		</div>
+		
+		
+			
+	</div>
+</section>
+
+<section class="service-form-section">
+	<div class="container">
+		<div class="questionform-text">
+			<h2>@Model.Value("formTitle")</h2>
+		</div>
+
+		<form novalidate>
+			@Html.GetBlockListHtml(Model.ContactForm)  
+		</form>
+
+			
+
+
+	</div>
+</section>
+
+<section class="addressinfo-section">
+	<div class="container">
+		
+		<div class="addressinfo-image-container">
+			<img class="addressinfo-image" src="@addressImage" >
+		</div>
+
+		<div class="addressinfo-info">
+			<h2>@Model.Value("addressTitle")</h2>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-location-pin"></i>@Model.Value("addressLocationBold")</p>
+				<p>@Model.Value("addressLocationText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-phone"></i>@Model.Value("addressPhoneBold")</p>
+				<p>@Model.Value("addressPhoneText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-regular fa-envelope"></i>@Model.Value("addressEmailBold")</p>
+				<p>@Model.Value("addressEmailText")</p>
+			</div>
+		</div>
+
+
+
+	</div>
+</section>

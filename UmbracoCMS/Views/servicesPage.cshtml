@@ -1,0 +1,102 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+
+
+	var scard1Image = Model?.Value<IPublishedContent>("serviceCard1Image")?.Url() ?? "";
+	var scard2Image = Model?.Value<IPublishedContent>("serviceCard2Image")?.Url() ?? "";
+	var scard3Image = Model?.Value<IPublishedContent>("serviceCard3Image")?.Url() ?? "";
+	var scard4Image = Model?.Value<IPublishedContent>("serviceCard4Image")?.Url() ?? "";
+	var scard5Image = Model?.Value<IPublishedContent>("serviceCard5Image")?.Url() ?? "";
+	var scard6Image = Model?.Value<IPublishedContent>("serviceCard6Image")?.Url() ?? "";
+	var addressImage = Model?.Value<IPublishedContent>("addressImage")?.Url() ?? ""; 
+		
+}
+
+<section class="our-services-page">
+	<div class="container">
+		
+		<div class="headline">
+			<div>
+				<h2>@Model.Value("ourServicesMainTitle")</h2>
+				<h5>@Model.Value("ourServicesHeadline")</h5>
+			</div>
+		</div>
+			
+
+
+	</div>
+</section>
+
+
+<section class="our-services">
+	<div class="container">
+		<div class="services-header">
+			<h5>@Model?.Value("ourServicesHeader")</h5>
+			<h2>@Model?.Value("ourServicesTitle")</h2>
+		</div>
+		<div class="services-cards">
+			<div class="scard">
+				<a href="@Model?.Value("serviceCard1Url")"><h3>@Model?.Value("serviceCard1Title")</h3></a>
+				<img src="@scard1Image">
+				<p>@Model?.Value("serviceCard1Description")</p>
+			</div>
+			<div class="scard">
+				<a href="@Model?.Value("serviceCard2Url")"><h3>@Model?.Value("serviceCard2Title")</h3></a>
+				<img src="@scard2Image">
+				<p>@Model?.Value("serviceCard2Description")</p>
+			</div>
+			<div class="scard">
+				<a href="@Model?.Value("serviceCard3Url")"><h3>@Model?.Value("serviceCard3Title")</h3></a>
+				<img src="@scard3Image">
+				<p>@Model?.Value("serviceCard3Description")</p>
+			</div>
+			<div class="scard">
+				<a href="@Model?.Value("serviceCard4Url")"><h3>@Model?.Value("serviceCard4Title")</h3></a>
+				<img src="@scard4Image">
+				<p>@Model?.Value("serviceCard4Description")</p>
+			</div>
+			<div class="scard">
+				<a href="@Model?.Value("serviceCard5Url")"><h3>@Model?.Value("serviceCard5Title")</h3></a>
+				<img src="@scard5Image">
+				<p>@Model?.Value("serviceCard5Description")</p>
+			</div>
+			<div class="scard">
+				<a href="@Model?.Value("serviceCard6Url")"><h3>@Model?.Value("serviceCard6Title")</h3></a>
+				<img src="@scard6Image">
+				<p>@Model?.Value("serviceCard6Description")</p>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+<section class="addressinfo-section">
+	<div class="container">
+		
+		<div class="addressinfo-image-container">
+			<img class="addressinfo-image" src="@addressImage" >
+		</div>
+
+		<div class="addressinfo-info">
+			<h2>@Model.Value("addressTitle")</h2>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-location-pin"></i>@Model.Value("addressLocationBold")</p>
+				<p>@Model.Value("addressLocationText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-solid fa-phone"></i>@Model.Value("addressPhoneBold")</p>
+				<p>@Model.Value("addressPhoneText")</p>
+			</div>
+			<div>
+				<p class="addressinfo-bold"><i class="fa-regular fa-envelope"></i>@Model.Value("addressEmailBold")</p>
+				<p>@Model.Value("addressEmailText")</p>
+			</div>
+		</div>
+
+
+
+	</div>
+</section>
